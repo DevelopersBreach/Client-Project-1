@@ -6,8 +6,16 @@
     <string name="second_fragment_label">Second Fragment</string>
 
     <string name="next">Next</string>
-    <string name="previous">Previous</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="hint_base_id_text">Base Id</string>
+    <string name="hint_customer_bill_text">Bill Number</string>
+    <string name="hint_customer_name_text">Customer Name</string>
+    <string name="pick_date">Pick Date</string>
+    <string name="hint_customer_contact_text">Contact</string>
+    <string name="add_new_customer">Add New Customer</string>
+    <string name="submit_text_button">Submit</string>
+    <string name="work_status">Status :</string>
+
+    <string name="status_completed">Completed</string>
+    <string name="status_pending">Pending</string>
 </resources>
