@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_bg"
+        tools:context=".view.billNumber.BillNumberFragment">
+
+        <ImageView
+            android:id="@+id/clear_icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/item_bg"
+            android:backgroundTint="#C57779"
+            android:padding="8dp"
+            android:src="@drawable/ic_clear"
+            android:layout_margin="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="#000000"
+            tools:ignore="ContentDescription" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/bill_number_text_input"
+            style="@style/FirebaseUI.TextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            app:counterEnabled="true"
+            app:counterMaxLength="4"
+            app:counterTextAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+            app:errorEnabled="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:hint="@string/bill_number_hint"
+                android:inputType="number"
+                android:maxLength="4"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline2"
+                android:textColorHint="#000000"
+                android:textStyle="bold" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/bill_number_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/submit_bill_number_button_text"
+            android:textColor="#000000"
+            android:visibility="invisible"
+            tools:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bill_number_text_input" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
