@@ -1,21 +1,31 @@
 <resources>
     <string name="app_name">Client Project</string>
 
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
+    <string name="main_fragment_title">Shiva Stitch Wear</string>
+    <string name="settings_toolbar_title">Settings</string>
 
-    <string name="next">Next</string>
+    <!--  Detail Fragment text labels  -->
+    <string name="label_customer">Customer</string>
+    <string name="label_contact">Contact</string>
+    <string name="label_type">Type</string>
+    <string name="label_status">Status</string>
+    <string name="label_num_items">Total</string>
 
-    <string name="hint_base_id_text">Base Id</string>
-    <string name="hint_customer_bill_text">Bill Number</string>
-    <string name="hint_customer_name_text">Customer Name</string>
-    <string name="pick_date">Pick Date</string>
-    <string name="hint_customer_contact_text">Contact</string>
-    <string name="add_new_customer">Add New Customer</string>
-    <string name="submit_text_button">Submit</string>
-    <string name="work_status">Status :</string>
-
-    <string name="status_completed">Completed</string>
     <string name="status_pending">Pending</string>
+    <string name="status_completed">Completed</string>
+
+    <string name="preference_summary_user_account">Check your sign in account</string>
+    <string name="preference_summary_logout_user">Logout from the app</string>
+    <string name="preference_title_user_account">Account</string>
+    <string name="preference_title_logout_user">Logout</string>
+
+    <string name="login">Login</string>
+    <string name="bill_number_hint">0001</string>
+    <string name="submit_bill_number_button_text">Submit</string>
+    <string name="field_required_error_text">Filed required</string>
+
+    <string name="customer_not_found_error_title_text">Customer Not Found</string>
+    <string name="customer_not_found_error_subtitle_text">Please enter your bill number to get customer details.</string>
+    <string name="customer_not_found_positive_button">Enter Bill Number</string>
+    <string name="login_text">Login to continue</string>
 </resources>
