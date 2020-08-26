@@ -57,8 +57,8 @@
         android:label="SettingsFragment"
         tools:layout="@layout/fragment_settings">
         <action
-            android:id="@+id/settingsToMainFragment"
-            app:destination="@id/mainFragment" />
+            android:id="@+id/settingsToLoginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
 
     <fragment
@@ -68,12 +68,12 @@
         tools:layout="@xml/preferences_customer" />
 
     <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.developersbreach.clientproject.view.controller.MainFragment"
-        android:label="MainFragment"
-        tools:layout="@layout/fragment_main">
+        android:id="@+id/loginFragment"
+        android:name="com.developersbreach.clientproject.view.login.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
         <action
-            android:id="@+id/mainToDashboardFragment"
+            android:id="@+id/loginToDashboardFragment"
             app:destination="@id/dashboardFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
