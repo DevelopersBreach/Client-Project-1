@@ -18,15 +18,9 @@ class SettingsFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentSettingsBinding.inflate(inflater, container, false)
+        binding.navController = findNavController()
         binding.lifecycleOwner = this
         return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding.toolbarSettings.setNavigationOnClickListener {
-            findNavController().navigateUp()
-        }
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

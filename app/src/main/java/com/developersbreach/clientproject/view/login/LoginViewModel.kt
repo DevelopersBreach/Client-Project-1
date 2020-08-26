@@ -1,4 +1,4 @@
-package com.developersbreach.clientproject.viewModel
+package com.developersbreach.clientproject.view.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.map

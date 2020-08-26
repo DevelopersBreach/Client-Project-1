@@ -24,12 +24,8 @@
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/fragment_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat"
+                style="@style/Text.Title.Customer.Fragment"
                 android:text="@string/main_fragment_title"
-                android:textColor="#000000"
-                android:textSize="28sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,15 +33,12 @@
                 android:id="@+id/settings_icon"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:background="@drawable/item_bg"
-                android:backgroundTint="#C57779"
                 android:padding="8dp"
                 android:src="@drawable/ic_settings"
                 app:bindDashboardSettingsIconListener="@{navController}"
                 app:layout_constraintBottom_toBottomOf="@id/fragment_title"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/fragment_title"
-                app:tint="#000000"
                 tools:ignore="ContentDescription" />
 
             <ImageView
@@ -60,15 +53,13 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/box_view"
                 tools:ignore="ContentDescription"
-                tools:src="@drawable/ic_account"
-                tools:tint="#000000" />
+                tools:src="@drawable/ic_account" />
 
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/box_view"
                 android:layout_width="match_parent"
-                android:layout_height="380dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="100dp"
-                app:cardBackgroundColor="@color/primaryColor"
                 app:cardCornerRadius="8dp"
                 app:cardElevation="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -79,6 +70,7 @@
                     android:id="@+id/customer_found_layout_parent"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginBottom="28dp"
                     android:visibility="invisible"
                     tools:visibility="visible">
 
@@ -87,7 +79,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="80dp"
-                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
                         android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -193,22 +185,29 @@
 
                     <Button
                         android:id="@+id/submit_bill_number_dashboard"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginEnd="20dp"
-                        android:backgroundTint="#532425"
-                        android:drawableLeft="@drawable/ic_bill_number"
-                        android:paddingTop="8dp"
-                        android:paddingBottom="8dp"
+                        style="@style/Widget.Customer.Button.Icon"
+                        android:layout_margin="20dp"
                         android:text="@string/customer_not_found_positive_button"
+                        app:icon="@drawable/ic_bill_number"
+                        app:iconGravity="textStart"
+                        app:iconPadding="16dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/customer_not_found_subtitle_text"
                         tools:ignore="RtlHardcoded" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <ProgressBar
+                    android:id="@+id/progress_bar_dashboard"
+                    style="@android:style/Widget.ProgressBar.Large"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:indeterminate="true"
+                    android:indeterminateTint="@color/colorProgressTint"
+                    android:indeterminateTintMode="multiply"
+                    android:visibility="invisible" />
 
             </com.google.android.material.card.MaterialCardView>
 

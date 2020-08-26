@@ -6,6 +6,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.developersbreach.clientproject.R
+import com.developersbreach.clientproject.utils.*
 import com.firebase.ui.auth.AuthUI
 
 class SettingsCompatFragment : PreferenceFragmentCompat() {
@@ -15,13 +16,13 @@ class SettingsCompatFragment : PreferenceFragmentCompat() {
             R.xml.preferences_customer, rootKey
         )
 
-        val userAccountPreference: Preference = findPreference("UserAccountPreferenceKey")!!
+        val userAccountPreference: Preference = findPreference(PREFERENCE_KEY_USER_ACCOUNT)!!
         userAccountPreference.onPreferenceClickListener = Preference.OnPreferenceClickListener {
             showUserAccountDialog()
             true
         }
 
-        val logoutUserPreference: Preference = findPreference("UserLogoutPreferenceKey")!!
+        val logoutUserPreference: Preference = findPreference(PREFERENCE_KEY_USER_LOGOUT)!!
         logoutUserPreference.onPreferenceClickListener = Preference.OnPreferenceClickListener {
             showLogoutUserDialog()
             true
@@ -35,7 +36,9 @@ class SettingsCompatFragment : PreferenceFragmentCompat() {
     private fun showLogoutUserDialog() {
         Toast.makeText(requireContext(), "Logout User", Toast.LENGTH_SHORT).show()
         AuthUI.getInstance().signOut(requireContext()).addOnCompleteListener {
-            findNavController().navigate(R.id.settingsToMainFragment)
+            findNavController().navigate(
+                SettingsFragmentDirections.settingsToLoginFragment()
+            )
         }
     }
 }

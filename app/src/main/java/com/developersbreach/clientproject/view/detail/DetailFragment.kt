@@ -9,8 +9,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.developersbreach.clientproject.databinding.FragmentDetailBinding
 import com.developersbreach.clientproject.model.Customers
-import com.developersbreach.clientproject.viewModel.DetailViewModel
-import com.developersbreach.clientproject.viewModel.DetailViewModelFactory
 
 
 class DetailFragment : Fragment() {
@@ -32,19 +30,12 @@ class DetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentDetailBinding.inflate(inflater)
+        binding = FragmentDetailBinding.inflate(inflater, container, false)
         binding.customer = viewModel.selectedCustomer
         binding.photoUrlString = viewModel.selectedUser
+        binding.navController = findNavController()
         binding.lifecycleOwner = this
         binding.executePendingBindings()
         return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        binding.toolbarDetailFragment.setNavigationOnClickListener {
-            findNavController().navigateUp()
-        }
     }
 }

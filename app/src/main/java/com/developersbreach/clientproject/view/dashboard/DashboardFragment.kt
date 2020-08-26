@@ -14,7 +14,7 @@ import com.developersbreach.clientproject.model.Customers
 import com.developersbreach.clientproject.model.UserAccount
 import com.developersbreach.clientproject.utils.COLLECTION_PATH
 import com.developersbreach.clientproject.utils.FIELD_MAIL
-import com.developersbreach.clientproject.viewModel.LoginViewModel
+import com.developersbreach.clientproject.view.login.LoginViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
@@ -39,6 +39,8 @@ class DashboardFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentDashboardBinding.inflate(inflater, container, false)
         binding.navController = findNavController()
+        binding.lifecycleOwner = this
+        binding.executePendingBindings()
         return binding.root
     }
 
@@ -50,7 +52,9 @@ class DashboardFragment : Fragment() {
                 setGoogleUser(googleUser)
                 setCurrentCustomer(googleUser)
             } else if (authState == AuthenticationState.UNAUTHENTICATED) {
-                findNavController().navigate(R.id.mainFragment)
+                findNavController().navigate(
+                    DashboardFragmentDirections.dashboardToLoginFragment()
+                )
             }
         })
     }
@@ -62,11 +66,15 @@ class DashboardFragment : Fragment() {
             currentUser.photoUrl.toString()
         )
 
-        Glide.with(requireContext()).load(userAccount.profileUrl).circleCrop()
+        Glide.with(requireContext())
+            .load(userAccount.profileUrl)
+            .placeholder(R.drawable.ic_customer_icon)
+            .circleCrop()
             .into(binding.dashboardUserProfile)
     }
 
     private fun setCurrentCustomer(googleUser: FirebaseUser) {
+        showProgressBar()
         FirebaseFirestore.getInstance().collection(COLLECTION_PATH)
             .whereEqualTo(FIELD_MAIL, googleUser.email)
             .get()
@@ -82,11 +90,14 @@ class DashboardFragment : Fragment() {
         if (!querySnapshot.isEmpty) {
             for (current in querySnapshot.documents) {
                 customer = current.toObject(Customers::class.java)!!
+                hideProgressBar()
                 customerFound(customer!!, googleUser.photoUrl.toString())
             }
         } else if (customer != null) {
+            hideProgressBar()
             customerFound(customer!!, googleUser.photoUrl.toString())
         } else {
+            hideProgressBar()
             customerNotFound()
         }
     }
@@ -128,5 +139,13 @@ class DashboardFragment : Fragment() {
                 DashboardFragmentDirections.dashboardToBillNumberFragment()
             )
         }
+    }
+
+    private fun showProgressBar() {
+        binding.progressBarDashboard.visibility = View.VISIBLE
+    }
+
+    private fun hideProgressBar() {
+        binding.progressBarDashboard.visibility = View.GONE
     }
 }
