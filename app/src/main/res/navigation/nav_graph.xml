@@ -6,6 +6,20 @@
     app:startDestination="@id/dashboardFragment">
 
     <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.developersbreach.clientproject.view.login.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/loginToDashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+
+    <fragment
         android:id="@+id/dashboardFragment"
         android:name="com.developersbreach.clientproject.view.dashboard.DashboardFragment"
         android:label="DashboardFragment"
@@ -36,6 +50,19 @@
             android:defaultValue="@null"
             app:argType="com.developersbreach.clientproject.model.Customers"
             app:nullable="true" />
+        <action
+            android:id="@+id/dashboardToLoginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/billNumberFragment"
+        android:name="com.developersbreach.clientproject.view.billNumber.BillNumberFragment"
+        android:label="BillNumberFragment"
+        tools:layout="@layout/fragment_bill_number">
+        <action
+            android:id="@+id/billNumberToDashboardFragment"
+            app:destination="@id/dashboardFragment" />
     </fragment>
 
     <fragment
@@ -66,29 +93,5 @@
         android:name="com.developersbreach.clientproject.view.settings.SettingsCompatFragment"
         android:label="SettingsCompatFragment"
         tools:layout="@xml/preferences_customer" />
-
-    <fragment
-        android:id="@+id/loginFragment"
-        android:name="com.developersbreach.clientproject.view.login.LoginFragment"
-        android:label="LoginFragment"
-        tools:layout="@layout/fragment_login">
-        <action
-            android:id="@+id/loginToDashboardFragment"
-            app:destination="@id/dashboardFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/billNumberFragment"
-        android:name="com.developersbreach.clientproject.view.billNumber.BillNumberFragment"
-        android:label="Bill Number Fragment"
-        tools:layout="@layout/fragment_bill_number">
-        <action
-            android:id="@+id/billNumberToDashboardFragment"
-            app:destination="@id/dashboardFragment" />
-    </fragment>
 
 </navigation>
