@@ -1,4 +1,4 @@
-package com.developersbreach.clientproject.viewModel
+package com.developersbreach.clientproject.view.detail
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

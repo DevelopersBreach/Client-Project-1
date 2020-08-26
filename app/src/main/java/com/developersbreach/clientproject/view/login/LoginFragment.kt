@@ -9,7 +9,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.developersbreach.clientproject.auth.AuthenticationState
 import com.developersbreach.clientproject.databinding.FragmentLoginBinding
-import com.developersbreach.clientproject.viewModel.LoginViewModel
 
 class LoginFragment : Fragment() {
 
