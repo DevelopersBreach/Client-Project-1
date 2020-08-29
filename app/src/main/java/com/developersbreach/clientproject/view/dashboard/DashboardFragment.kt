@@ -2,7 +2,9 @@ package com.developersbreach.clientproject.view.dashboard
 
 import android.content.Context
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -14,7 +16,6 @@ import com.developersbreach.clientproject.model.Customers
 import com.developersbreach.clientproject.model.UserAccount
 import com.developersbreach.clientproject.utils.COLLECTION_PATH
 import com.developersbreach.clientproject.utils.FIELD_MAIL
-import com.developersbreach.clientproject.view.login.LoginViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
@@ -24,7 +25,7 @@ import com.google.firebase.firestore.QuerySnapshot
 class DashboardFragment : Fragment() {
 
     private lateinit var binding: FragmentDashboardBinding
-    private val viewModel by viewModels<LoginViewModel>()
+    private val viewModel by viewModels<DashboardViewModel>()
     private var customer: Customers? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +40,7 @@ class DashboardFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentDashboardBinding.inflate(inflater, container, false)
         binding.navController = findNavController()
+        binding.viewModel = viewModel
         binding.lifecycleOwner = this
         binding.executePendingBindings()
         return binding.root
@@ -110,6 +112,7 @@ class DashboardFragment : Fragment() {
         binding.customerBillNumberTextView.text = customer.billNumber
         binding.customerDateTextView.text = customer.date
         binding.dashboardCustomerName.text = customer.name
+        binding.dashboardCustomerMail.text = customer.email
 
         if (customer.status) {
             binding.statusIcon.setImageResource(R.drawable.ic_completed)
