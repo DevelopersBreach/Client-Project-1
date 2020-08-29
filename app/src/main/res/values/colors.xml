@@ -20,5 +20,6 @@
 
     <color name="colorProgressTint">#DD8888</color>
     <color name="colorHint">#DDC37C7C</color>
+    <color name="colorCardSurface">#556167</color>
 
 </resources>

@@ -40,5 +40,8 @@
     <string name="detail_num_items_text_label">Total items</string>
     <string name="detail_date_started_on_label">Started On</string>
     <string name="detail_date_expected_label">Expected</string>
+    <string name="dashboard_item_search_bill_number">Search bill number</string>
+    <string name="dashboard_item_contact_shop">Contact shop</string>
+    <string name="dashboard_item_services">Services</string>
 
 </resources>
