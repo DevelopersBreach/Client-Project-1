@@ -45,6 +45,13 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@android:anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/dashboardToContactFragment"
+            app:destination="@id/contactFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
         <argument
             android:name="customerDashboardArgs"
             android:defaultValue="@null"
@@ -93,5 +100,19 @@
         android:name="com.developersbreach.clientproject.view.settings.SettingsCompatFragment"
         android:label="SettingsCompatFragment"
         tools:layout="@xml/preferences_customer" />
+
+    <fragment
+        android:id="@+id/contactFragment"
+        android:name="com.developersbreach.clientproject.view.contact.ContactFragment"
+        android:label="ContactFragment"
+        tools:layout="@layout/fragment_contact">
+        <action
+            android:id="@+id/contactToDashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
 
 </navigation>
