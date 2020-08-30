@@ -1,16 +1,15 @@
 package com.developersbreach.clientproject.view.contact
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.developersbreach.clientproject.databinding.ItemShopBinding
 import com.developersbreach.clientproject.model.Shop
 import com.developersbreach.clientproject.view.contact.ShopAdapter.ShopViewHolder
 
-class ShopAdapter : ListAdapter<Shop, ShopViewHolder>(Shop.DiffCallBack) {
+class ShopAdapter(
+    private val shopList: List<Shop>
+) : RecyclerView.Adapter<ShopViewHolder>() {
 
     class ShopViewHolder(
         private val binding: ItemShopBinding
@@ -19,9 +18,7 @@ class ShopAdapter : ListAdapter<Shop, ShopViewHolder>(Shop.DiffCallBack) {
         fun bind(
             shop: Shop
         ) {
-            Log.e("Adapter", shop.shopImages!!)
-            Glide.with(binding.itemShopImageView.context).load(shop.shopImages)
-                .into(binding.itemShopImageView)
+            binding.shop = shop
             binding.executePendingBindings()
         }
     }
@@ -35,6 +32,9 @@ class ShopAdapter : ListAdapter<Shop, ShopViewHolder>(Shop.DiffCallBack) {
     }
 
     override fun onBindViewHolder(holder: ShopViewHolder, position: Int) {
-        holder.bind(getItem(position))
+        val shop: Shop = shopList[position]
+        holder.bind(shop)
     }
+
+    override fun getItemCount(): Int = shopList.size
 }
