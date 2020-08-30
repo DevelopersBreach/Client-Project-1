@@ -8,6 +8,14 @@
         <variable
             name="navController"
             type="androidx.navigation.NavController" />
+
+        <variable
+            name="viewModel"
+            type="com.developersbreach.clientproject.view.contact.ContactViewModel" />
+
+        <variable
+            name="fragment"
+            type="com.developersbreach.clientproject.view.contact.ContactFragment" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -39,15 +47,16 @@
                     android:layout_height="match_parent"
                     android:fitsSystemWindows="true"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/ic_contact"
                     app:layout_collapseMode="parallax"
                     tools:ignore="ContentDescription"
-                    tools:layout_gravity="center" />
+                    tools:layout_gravity="center"
+                    tools:src="@drawable/ic_contact" />
 
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/contact_fragment_toolbar"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
+                    app:bindContactFragmentNavigationIconListener="@{navController}"
                     app:layout_collapseMode="pin"
                     app:navigationIcon="@drawable/ic_up_button" />
 
@@ -65,7 +74,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:spanCount="2"
+                android:clipToPadding="false"
+                android:padding="@dimen/recycler_view_spacing_dimen"
+                android:scrollbars="none"
+                app:bindContactFragmentReference="@{fragment}"
+                app:bindContactListData="@{viewModel.imagesData}"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
