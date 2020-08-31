@@ -2,7 +2,7 @@
     <string name="app_name">Client Project</string>
 
     <!--  LoginFragment  -->
-    <string name="main_fragment_title">Shiva Stitch Wear</string>
+    <string name="main_fragment_title">Shiva Ladies Tailor</string>
     <string name="settings_toolbar_title">Settings</string>
     <string name="welcome_label">Welcome !</string>
     <string name="login_status">
@@ -43,5 +43,17 @@
     <string name="dashboard_item_search_bill_number">Search bill number</string>
     <string name="dashboard_item_contact_shop">Contact shop</string>
     <string name="dashboard_item_services">Services</string>
+
+    <!--  ContactFragment  -->
+    <string name="address">
+        Shop No. 39, First Floor
+        \nAbdullah Khan Estate
+        \nKurnool, Andhra Pradesh
+        \n518001.
+    </string>
+    <string name="open_time">
+        Opens at 10:30 am. \nCloses at 9:30 pm. \nSundays closed.
+    </string>
+    <string name="contact_label">shivastitchwear@gmail.com</string>
 
 </resources>

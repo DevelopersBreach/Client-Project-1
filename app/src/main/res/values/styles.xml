@@ -27,6 +27,20 @@
         <item name="android:fontFamily">@font/montserrat</item>
     </style>
 
+    <style name="ContactFragment">
+        <item name="colorPrimary">@color/colorSecondary</item>
+        <item name="colorPrimaryDark">@color/colorSecondaryVariant</item>
+        <item name="colorOnPrimary">@color/colorOnSecondary</item>
+        <item name="background">@color/colorSecondary</item>
+        <item name="android:background">@color/colorSecondary</item>
+    </style>
+
+    <style name="ThemeOverlay.ContactFragment" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorSecondary</item>
+        <item name="colorPrimaryDark">@color/colorSecondaryVariant</item>
+        <item name="colorOnPrimary">@color/colorOnSecondary</item>
+    </style>
+
     <style name="TextAppearance.Customer.Toolbar.Main" parent="TextAppearance.MaterialComponents.Headline5">
         <item name="fontFamily">@font/montserrat</item>
     </style>
