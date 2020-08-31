@@ -6,7 +6,9 @@ import androidx.appcompat.widget.Toolbar
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 import androidx.navigation.NavController
+import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.SnapHelper
 import com.bumptech.glide.Glide
 import com.developersbreach.clientproject.R
 import com.developersbreach.clientproject.model.Shop
@@ -20,6 +22,10 @@ fun RecyclerView.setContactListData(
     liveData.observe(owner, { shopList ->
         val adapter = ShopAdapter(shopList)
         this.adapter = adapter
+
+        val helper: SnapHelper = LinearSnapHelper()
+        this.onFlingListener = null
+        helper.attachToRecyclerView(this)
     })
 }
 
