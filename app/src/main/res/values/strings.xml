@@ -1,9 +1,11 @@
 <resources>
     <string name="app_name">Client Project</string>
 
-    <!--  LoginFragment  -->
     <string name="main_fragment_title">Shiva Ladies Tailor</string>
+    <string name="services_fragment_title">Services</string>
     <string name="settings_toolbar_title">Settings</string>
+
+    <!--  LoginFragment  -->
     <string name="welcome_label">Welcome !</string>
     <string name="login_status">
         You are currently not logged in. Please login from below to continue.
@@ -46,14 +48,14 @@
 
     <!--  ContactFragment  -->
     <string name="address">
-        Shop No. 39, First Floor
-        \nAbdullah Khan Estate
-        \nKurnool, Andhra Pradesh
-        \n518001.
-    </string>
-    <string name="open_time">
-        Opens at 10:30 am. \nCloses at 9:30 pm. \nSundays closed.
-    </string>
+        Shop No. 39, First Floor \nAbdullah Khan Estate \nKurnool, Andhra Pradesh \n518001.</string>
+    <string name="open_time">Opens at 10:30 am. \nCloses at 9:30 pm. \nSundays closed.</string>
     <string name="contact_label">shivastitchwear@gmail.com</string>
+    <string name="services_alterations">Alterations</string>
+    <string name="services_blouses">Blouses</string>
+    <string name="services_dresses">Dresses</string>
+    <string name="services_uniform">Uniforms</string>
+    <string name="services_wedding">Weddings</string>
+    <string name="services_women_clothing">Women\'s Clothing</string>
 
 </resources>
