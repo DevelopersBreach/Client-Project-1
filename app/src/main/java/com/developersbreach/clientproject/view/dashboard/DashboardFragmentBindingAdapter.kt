@@ -57,9 +57,9 @@ fun ConstraintLayout.setDashboardItemParentBackground(
                 DashboardFragmentDirections.dashboardToContactFragment()
             )
 
-            2 -> {
-
-            }
+            2 -> findNavController().navigate(
+                DashboardFragmentDirections.dashboardToServicesFragment()
+            )
         }
     }
 }

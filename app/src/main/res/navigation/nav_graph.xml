@@ -60,6 +60,9 @@
         <action
             android:id="@+id/dashboardToLoginFragment"
             app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/dashboardToServicesFragment"
+            app:destination="@id/servicesFragment" />
     </fragment>
 
     <fragment
@@ -114,5 +117,11 @@
             app:popEnterAnim="@android:anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
+
+    <fragment
+        android:id="@+id/servicesFragment"
+        android:name="com.developersbreach.clientproject.view.services.ServicesFragment"
+        android:label="fragment_services"
+        tools:layout="@layout/fragment_services" />
 
 </navigation>

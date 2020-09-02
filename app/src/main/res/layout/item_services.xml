@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="services"
+            type="com.developersbreach.clientproject.model.Services" />
+    </data>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:text="@{services.serviceTitle}"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
+        android:textColor="#000000"
+        tools:paddingStart="16dp"
+        tools:text="@string/services_alterations" />
+
+</layout>
