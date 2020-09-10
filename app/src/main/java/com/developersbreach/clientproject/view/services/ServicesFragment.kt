@@ -28,6 +28,8 @@ class ServicesFragment : Fragment() {
         val binding = FragmentServicesBinding.inflate(inflater, container, false)
         binding.navController = findNavController()
         binding.viewModel = viewModel
+        binding.lifecycleOwner = this
+        binding.executePendingBindings()
         return binding.root
     }
 }

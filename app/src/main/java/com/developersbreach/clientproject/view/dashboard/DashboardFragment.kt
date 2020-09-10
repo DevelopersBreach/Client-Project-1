@@ -15,6 +15,8 @@ import com.developersbreach.clientproject.databinding.FragmentDashboardBinding
 import com.developersbreach.clientproject.model.Customers
 import com.developersbreach.clientproject.model.UserAccount
 import com.developersbreach.clientproject.utils.COLLECTION_PATH
+import com.developersbreach.clientproject.utils.DELIVERY_STATUS_COMPLETED
+import com.developersbreach.clientproject.utils.DELIVERY_STATUS_PENDING
 import com.developersbreach.clientproject.utils.FIELD_MAIL
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -30,6 +32,19 @@ class DashboardFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val sharedPref = requireContext().getSharedPreferences(
+            getString(R.string.preference_intro_result_key), Context.MODE_PRIVATE)
+
+        with(sharedPref.getString(
+            getString(R.string.preference_intro_status_key),
+            getString(R.string.preference_intro_fragment_not_shown_value)
+        )) {
+            if (!this.equals(getString(R.string.preference_intro_fragment_shown_value))) {
+                findNavController().navigate(R.id.introFragment)
+            }
+        }
+
         customer = DashboardFragmentArgs.fromBundle(requireArguments()).customerDashboardArgs
     }
 
@@ -114,10 +129,10 @@ class DashboardFragment : Fragment() {
         binding.dashboardCustomerName.text = customer.name
         binding.dashboardCustomerMail.text = customer.email
 
-        if (customer.status) {
+        if (customer.status == DELIVERY_STATUS_COMPLETED) {
             binding.statusIcon.setImageResource(R.drawable.ic_completed)
             binding.customerStatusText.text = context.getString(R.string.status_completed)
-        } else {
+        } else if (customer.status == DELIVERY_STATUS_PENDING) {
             binding.statusIcon.setImageResource(R.drawable.ic_pending)
             binding.customerStatusText.text = context.getString(R.string.status_pending)
         }

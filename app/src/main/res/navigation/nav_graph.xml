@@ -124,4 +124,14 @@
         android:label="fragment_services"
         tools:layout="@layout/fragment_services" />
 
+    <fragment
+        android:id="@+id/introFragment"
+        android:name="com.developersbreach.clientproject.view.intro.IntroFragment"
+        android:label="IntroFragment"
+        tools:layout="@layout/fragment_intro" >
+        <action
+            android:id="@+id/introToDashboardFragment"
+            app:destination="@id/dashboardFragment" />
+    </fragment>
+
 </navigation>
