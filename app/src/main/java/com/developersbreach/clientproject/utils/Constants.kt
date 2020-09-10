@@ -10,6 +10,8 @@ const val COLLECTION_PATH_PHOTOS: String = "shop"
 const val DOCUMENT_IMAGES: String = "images"
 const val FIELD_ARRAY_IMAGES: String = "images_array"
 
+const val DELIVERY_STATUS_PENDING = 0
+const val DELIVERY_STATUS_COMPLETED = 1
 
 const val PREFERENCE_KEY_USER_ACCOUNT: String = "UserAccountPreferenceKey"
 const val PREFERENCE_KEY_USER_LOGOUT: String = "UserLogoutPreferenceKey"
