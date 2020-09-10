@@ -14,8 +14,9 @@ class Customers : Parcelable {
     var name: String? = null
     var email: String? = null
     var contact: String? = null
-    var status: Boolean = false
+    var status: Int = 0
     var date: String? = null
+    var delivery: String? = null
 
     // Requires empty constructor for firestore
     constructor()
@@ -27,8 +28,9 @@ class Customers : Parcelable {
         customerName: String,
         email: String,
         contact: String,
-        status: Boolean,
-        date: String
+        status: Int,
+        date: String,
+        delivery: String
     ) : this() {
         this.billNumber = billNumber
         this.totalItems = totalItems
@@ -38,17 +40,19 @@ class Customers : Parcelable {
         this.contact = contact
         this.status = status
         this.date = date
+        this.delivery = delivery
     }
 
-    private constructor(`in`: Parcel) {
-        billNumber = `in`.readString()
-        totalItems = `in`.readString()
-        itemType = `in`.readString()
-        name = `in`.readString()
-        email = `in`.readString()
-        contact = `in`.readString()
-        status = `in`.readBoolean()
-        date = `in`.readString()
+    private constructor(parcel: Parcel) {
+        billNumber = parcel.readString()
+        totalItems = parcel.readString()
+        itemType = parcel.readString()
+        name = parcel.readString()
+        email = parcel.readString()
+        contact = parcel.readString()
+        status = parcel.readInt()
+        date = parcel.readString()
+        delivery = parcel.readString()
     }
 
     override fun describeContents(): Int {
@@ -62,8 +66,9 @@ class Customers : Parcelable {
         dest.writeString(name)
         dest.writeString(email)
         dest.writeString(contact)
-        dest.writeBoolean(status)
+        dest.writeInt(status)
         dest.writeString(date)
+        dest.writeString(delivery)
     }
 
     companion object CREATOR : Parcelable.Creator<Customers> {
