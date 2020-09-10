@@ -12,7 +12,6 @@ import com.developersbreach.clientproject.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
 
-    private lateinit var binding: FragmentLoginBinding
     private val viewModel by viewModels<LoginViewModel>()
 
     override fun onCreateView(
@@ -20,8 +19,9 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentLoginBinding.inflate(inflater, container, false)
+        val binding = FragmentLoginBinding.inflate(inflater, container, false)
         binding.activity = requireActivity()
+        binding.lifecycleOwner = this
         binding.executePendingBindings()
         return binding.root
     }

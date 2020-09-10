@@ -7,11 +7,7 @@ import com.developersbreach.clientproject.auth.AuthenticationState
 
 class LoginViewModel : ViewModel() {
 
-    val authenticationState = FirebaseUserLiveData().map { user ->
-        if (user != null) {
-            AuthenticationState.AUTHENTICATED
-        } else {
-            AuthenticationState.UNAUTHENTICATED
-        }
+    val authenticationState = FirebaseUserLiveData().map {
+        AuthenticationState.AUTHENTICATED
     }
 }

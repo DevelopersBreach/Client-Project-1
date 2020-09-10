@@ -9,12 +9,8 @@ import com.developersbreach.clientproject.model.Dashboard
 
 class DashboardViewModel(application: Application) : AndroidViewModel(application) {
 
-    val authenticationState = FirebaseUserLiveData().map { user ->
-        if (user != null) {
-            AuthenticationState.AUTHENTICATED
-        } else {
-            AuthenticationState.UNAUTHENTICATED
-        }
+    val authenticationState = FirebaseUserLiveData().map {
+        AuthenticationState.AUTHENTICATED
     }
 
     private val _dashboardList = Dashboard.dashboardData(application.applicationContext)
