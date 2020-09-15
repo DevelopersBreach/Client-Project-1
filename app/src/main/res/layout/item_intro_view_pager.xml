@@ -121,7 +121,6 @@
                 android:layout_margin="4dp"
                 android:background="@drawable/pager_background"
                 app:bindPagerFirstPositionViewer="@{intro.id}"
-                app:bindPagerFourthPositionViewer="@{introPagerPositionFourth}"
                 app:bindPagerSecondPositionViewer="@{introPagerPositionTwo}"
                 app:bindPagerThirdPositionViewer="@{introPagerPositionThree}"
                 tools:layout_height="12dp"
@@ -136,13 +135,6 @@
 
             <View
                 android:id="@+id/intro_pager_position_three"
-                android:layout_width="8dp"
-                android:layout_height="8dp"
-                android:layout_margin="4dp"
-                android:background="@drawable/pager_background" />
-
-            <View
-                android:id="@+id/intro_pager_position_fourth"
                 android:layout_width="8dp"
                 android:layout_height="8dp"
                 android:layout_margin="4dp"
