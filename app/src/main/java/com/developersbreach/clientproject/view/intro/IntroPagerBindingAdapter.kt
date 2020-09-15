@@ -9,6 +9,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.developersbreach.clientproject.R
 import com.developersbreach.clientproject.model.Intro
 import com.developersbreach.clientproject.utils.convertToDp
+import com.developersbreach.clientproject.view.controller.introToDashboard
 
 
 @BindingAdapter("bindIntroViewPagerListData")
@@ -68,17 +69,14 @@ fun TextView.setNextItemClickListener(
             super.onPageScrollStateChanged(state)
 
             when (state) {
-                ViewPager2.SCROLL_STATE_DRAGGING -> {
-                    skipIntroTextView.visibility = View.INVISIBLE
-                    nextIntroTextView.visibility = View.INVISIBLE
-                }
-                ViewPager2.SCROLL_STATE_IDLE -> {
-                    skipIntroTextView.visibility = View.VISIBLE
-                    nextIntroTextView.visibility = View.VISIBLE
-                }
+                ViewPager2.SCROLL_STATE_IDLE,
                 ViewPager2.SCROLL_STATE_SETTLING -> {
                     skipIntroTextView.visibility = View.VISIBLE
                     nextIntroTextView.visibility = View.VISIBLE
+                }
+                ViewPager2.SCROLL_STATE_DRAGGING -> {
+                    skipIntroTextView.visibility = View.INVISIBLE
+                    nextIntroTextView.visibility = View.INVISIBLE
                 }
             }
         }
@@ -88,19 +86,17 @@ fun TextView.setNextItemClickListener(
 
 @BindingAdapter(
     "bindPagerFirstPositionViewer", "bindPagerSecondPositionViewer",
-    "bindPagerThirdPositionViewer", "bindPagerFourthPositionViewer"
+    "bindPagerThirdPositionViewer"
 )
 fun View.setPagerFirstPositionViewer(
     currentId: Int,
     secondViewer: View,
     thirdViewer: View,
-    fourthViewer: View
 ) {
     when (currentId) {
         1 -> adjustViewSize(this)
         2 -> adjustViewSize(secondViewer)
         3 -> adjustViewSize(thirdViewer)
-        4 -> adjustViewSize(fourthViewer)
     }
 }
 
@@ -109,7 +105,6 @@ private fun View.adjustViewSize(currentView: View) {
     currentView.layoutParams.height = convertToDp(12.toFloat())
     currentView.layoutParams.width = convertToDp(12.toFloat())
 }
-
 
 private fun TextView.navigateToArticleListFragment(nextIntroTextView: TextView) {
     val context: Context = nextIntroTextView.context
@@ -127,7 +122,5 @@ private fun TextView.navigateToArticleListFragment(nextIntroTextView: TextView) 
         commit()
     }
 
-    findNavController().navigate(
-        IntroFragmentDirections.introToDashboardFragment()
-    )
+    introToDashboard(findNavController())
 }

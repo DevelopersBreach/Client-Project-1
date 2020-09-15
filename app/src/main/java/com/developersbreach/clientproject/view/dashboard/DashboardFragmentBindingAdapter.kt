@@ -7,6 +7,10 @@ import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.developersbreach.clientproject.model.Dashboard
+import com.developersbreach.clientproject.view.controller.dashboardToBillNumber
+import com.developersbreach.clientproject.view.controller.dashboardToContact
+import com.developersbreach.clientproject.view.controller.dashboardToServices
+import com.developersbreach.clientproject.view.controller.dashboardToSettings
 
 
 @BindingAdapter("bindDashboardListData")
@@ -24,9 +28,7 @@ fun ImageView.setDashboardSettingsIconListener(
     navController: NavController
 ) {
     this.setOnClickListener {
-        navController.navigate(
-            DashboardFragmentDirections.dashboardToSettingsFragment()
-        )
+        dashboardToSettings(navController)
     }
 }
 
@@ -44,22 +46,11 @@ fun ConstraintLayout.setDashboardItemParentBackground(
     dashboard: Dashboard
 ) {
     this.setBackgroundResource(dashboard.gradientBackground)
-
     this.setOnClickListener {
-
         when (dashboard.dashboardId) {
-
-            0 -> findNavController().navigate(
-                DashboardFragmentDirections.dashboardToBillNumberFragment()
-            )
-
-            1 -> findNavController().navigate(
-                DashboardFragmentDirections.dashboardToContactFragment()
-            )
-
-            2 -> findNavController().navigate(
-                DashboardFragmentDirections.dashboardToServicesFragment()
-            )
+            0 -> dashboardToBillNumber(findNavController())
+            1 -> dashboardToContact(findNavController())
+            2 -> dashboardToServices(findNavController())
         }
     }
 }

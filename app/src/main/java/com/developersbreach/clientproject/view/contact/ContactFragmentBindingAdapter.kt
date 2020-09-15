@@ -1,7 +1,6 @@
 package com.developersbreach.clientproject.view.contact
 
 import android.widget.ImageView
-import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
@@ -49,8 +48,4 @@ fun ImageView.setContactItemImage(
         .load(shop.shopImages)
         .placeholder(R.drawable.ic_placeholder_image)
         .into(this)
-
-    this.setOnClickListener {
-        Toast.makeText(context, "Position", Toast.LENGTH_SHORT).show()
-    }
 }

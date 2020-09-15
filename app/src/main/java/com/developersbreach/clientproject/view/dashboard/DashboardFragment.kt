@@ -14,10 +14,8 @@ import com.developersbreach.clientproject.auth.AuthenticationState
 import com.developersbreach.clientproject.databinding.FragmentDashboardBinding
 import com.developersbreach.clientproject.model.Customers
 import com.developersbreach.clientproject.model.UserAccount
-import com.developersbreach.clientproject.utils.COLLECTION_PATH
-import com.developersbreach.clientproject.utils.DELIVERY_STATUS_COMPLETED
-import com.developersbreach.clientproject.utils.DELIVERY_STATUS_PENDING
-import com.developersbreach.clientproject.utils.FIELD_MAIL
+import com.developersbreach.clientproject.utils.*
+import com.developersbreach.clientproject.view.controller.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
@@ -41,7 +39,7 @@ class DashboardFragment : Fragment() {
             getString(R.string.preference_intro_fragment_not_shown_value)
         )) {
             if (!this.equals(getString(R.string.preference_intro_fragment_shown_value))) {
-                findNavController().navigate(R.id.introFragment)
+                dashboardToIntro(findNavController())
             }
         }
 
@@ -69,9 +67,7 @@ class DashboardFragment : Fragment() {
                 setGoogleUser(googleUser)
                 setCurrentCustomer(googleUser)
             } else if (authState == AuthenticationState.UNAUTHENTICATED) {
-                findNavController().navigate(
-                    DashboardFragmentDirections.dashboardToLoginFragment()
-                )
+                dashboardToLogin(findNavController())
             }
         })
     }
@@ -138,11 +134,7 @@ class DashboardFragment : Fragment() {
         }
 
         binding.dashboardFab.setOnClickListener {
-            findNavController().navigate(
-                DashboardFragmentDirections.dashboardToDetailFragment(
-                    customer, photoUrl
-                )
-            )
+            dashboardToDetail(customer, photoUrl, findNavController())
         }
 
         binding.customerFoundLayoutParent.visibility = View.VISIBLE
@@ -153,9 +145,7 @@ class DashboardFragment : Fragment() {
         binding.dashboardFab.visibility = View.INVISIBLE
 
         binding.submitBillNumberDashboard.setOnClickListener {
-            findNavController().navigate(
-                DashboardFragmentDirections.dashboardToBillNumberFragment()
-            )
+            dashboardToBillNumber(findNavController())
         }
     }
 
