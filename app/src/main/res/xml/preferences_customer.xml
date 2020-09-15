@@ -2,15 +2,15 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <Preference
-        app:icon="@drawable/ic_account"
-        app:key="UserAccountPreferenceKey"
-        app:summary="@string/preference_summary_user_account"
-        app:title="@string/preference_title_user_account" />
-
-    <Preference
         app:icon="@drawable/ic_logout"
         app:key="UserLogoutPreferenceKey"
         app:summary="@string/preference_summary_logout_user"
         app:title="@string/preference_title_logout_user" />
+
+    <Preference
+        app:icon="@drawable/ic_about"
+        app:key="AboutAppPreferenceKey"
+        app:summary="@string/preference_summary_about_app"
+        app:title="@string/preference_title_about_app" />
 
 </PreferenceScreen>
