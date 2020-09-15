@@ -13,6 +13,7 @@ import androidx.navigation.findNavController
 import com.developersbreach.clientproject.R
 import com.developersbreach.clientproject.model.Customers
 import com.developersbreach.clientproject.utils.COLLECTION_PATH
+import com.developersbreach.clientproject.view.controller.billNumberToDashboard
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -77,9 +78,7 @@ private fun firestoreSearch(
             if (document.exists()) {
                 val customer = document.toObject(Customers::class.java)
                 hideProgress(parent, progressBar)
-                navController.navigate(
-                    BillNumberFragmentDirections.billNumberToDashboardFragment(customer)
-                )
+                billNumberToDashboard(navController, customer)
             } else {
                 hideProgress(parent, progressBar)
                 showCustomerNotFoundDialog(parent.context)

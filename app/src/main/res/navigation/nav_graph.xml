@@ -52,17 +52,33 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@android:anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/dashboardToLoginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/dashboardToServicesFragment"
+            app:destination="@id/servicesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/dashboardToIntroFragment"
+            app:destination="@id/introFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+
         <argument
             android:name="customerDashboardArgs"
             android:defaultValue="@null"
             app:argType="com.developersbreach.clientproject.model.Customers"
             app:nullable="true" />
-        <action
-            android:id="@+id/dashboardToLoginFragment"
-            app:destination="@id/loginFragment" />
-        <action
-            android:id="@+id/dashboardToServicesFragment"
-            app:destination="@id/servicesFragment" />
     </fragment>
 
     <fragment
@@ -72,7 +88,11 @@
         tools:layout="@layout/fragment_bill_number">
         <action
             android:id="@+id/billNumberToDashboardFragment"
-            app:destination="@id/dashboardFragment" />
+            app:destination="@id/dashboardFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
 
     <fragment
@@ -95,7 +115,18 @@
         tools:layout="@layout/fragment_settings">
         <action
             android:id="@+id/settingsToLoginFragment"
-            app:destination="@id/loginFragment" />
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/settingsToIntroFragment"
+            app:destination="@id/introFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
 
     <fragment
@@ -128,10 +159,14 @@
         android:id="@+id/introFragment"
         android:name="com.developersbreach.clientproject.view.intro.IntroFragment"
         android:label="IntroFragment"
-        tools:layout="@layout/fragment_intro" >
+        tools:layout="@layout/fragment_intro">
         <action
             android:id="@+id/introToDashboardFragment"
-            app:destination="@id/dashboardFragment" />
+            app:destination="@id/dashboardFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
 
 </navigation>
