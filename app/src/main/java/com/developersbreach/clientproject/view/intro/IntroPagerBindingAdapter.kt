@@ -50,10 +50,10 @@ fun TextView.setNextItemClickListener(
             skipIntroTextView.text = context.getText(R.string.skip_intro_pager_text)
             skipIntroTextView.visibility = View.VISIBLE
         }
-        2, 3 -> {
+        2 -> {
             skipIntroTextView.visibility = View.GONE
         }
-        4 -> {
+        3 -> {
             this.text = nextIntroTextView.context.getText(R.string.end_intro_pager_text)
             skipIntroTextView.visibility = View.GONE
         }
