@@ -70,6 +70,16 @@ class DashboardFragment : Fragment() {
                 dashboardToLogin(findNavController())
             }
         })
+
+        if (viewModel.isConnected) {
+            binding.includeNoInternetLayout.boxViewNoInternet.visibility = View.INVISIBLE
+            binding.boxView.visibility = View.VISIBLE
+            binding.dashboardUserProfile.visibility = View.VISIBLE
+        } else {
+            binding.includeNoInternetLayout.boxViewNoInternet.visibility = View.VISIBLE
+            binding.boxView.visibility = View.INVISIBLE
+            binding.dashboardUserProfile.visibility = View.INVISIBLE
+        }
     }
 
     private fun setGoogleUser(currentUser: FirebaseUser) {
