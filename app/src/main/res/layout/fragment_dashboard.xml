@@ -238,6 +238,10 @@
 
                 </com.google.android.material.card.MaterialCardView>
 
+                <include
+                    android:id="@+id/include_no_internet_layout"
+                    layout="@layout/no_internet_layout" />
+
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
                     android:id="@+id/dashboard_fab"
                     android:layout_width="wrap_content"
