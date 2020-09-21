@@ -78,5 +78,6 @@
     <string name="intro_pager_second_subtitle_text">Updates feed regularly from cloud.</string>
     <string name="intro_pager_third_subtitle_text">Receive notifications for new articles, Manage
         and bookmark feed.</string>
+    <string name="refresh">Refresh</string>
 
 </resources>
