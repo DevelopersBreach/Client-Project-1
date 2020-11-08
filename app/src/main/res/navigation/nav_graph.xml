@@ -3,76 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/dashboardFragment">
+    app:startDestination="@id/submissionsFragment">
+
+    <fragment
+        android:id="@+id/introFragment"
+        android:name="com.developersbreach.clientproject.view.intro.IntroFragment"
+        android:label="Intro"
+        tools:layout="@layout/fragment_intro" />
 
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.developersbreach.clientproject.view.login.LoginFragment"
-        android:label="LoginFragment"
+        android:label="Login"
         tools:layout="@layout/fragment_login">
         <action
-            android:id="@+id/loginToDashboardFragment"
-            app:destination="@id/dashboardFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
+            android:id="@+id/loginToSubmissionsFragment"
+            app:destination="@id/submissionsFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/dashboardFragment"
         android:name="com.developersbreach.clientproject.view.dashboard.DashboardFragment"
-        android:label="DashboardFragment"
+        android:label="Dashboard"
         tools:layout="@layout/fragment_dashboard">
-        <action
-            android:id="@+id/dashboardToDetailFragment"
-            app:destination="@id/detailFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
-        <action
-            android:id="@+id/dashboardToSettingsFragment"
-            app:destination="@id/settingsFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
-        <action
-            android:id="@+id/dashboardToBillNumberFragment"
-            app:destination="@id/billNumberFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
-        <action
-            android:id="@+id/dashboardToContactFragment"
-            app:destination="@id/contactFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
-        <action
-            android:id="@+id/dashboardToLoginFragment"
-            app:destination="@id/loginFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
-        <action
-            android:id="@+id/dashboardToServicesFragment"
-            app:destination="@id/servicesFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
-        <action
-            android:id="@+id/dashboardToIntroFragment"
-            app:destination="@id/introFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
 
         <argument
             android:name="customerDashboardArgs"
@@ -84,21 +37,13 @@
     <fragment
         android:id="@+id/billNumberFragment"
         android:name="com.developersbreach.clientproject.view.billNumber.BillNumberFragment"
-        android:label="BillNumberFragment"
-        tools:layout="@layout/fragment_bill_number">
-        <action
-            android:id="@+id/billNumberToDashboardFragment"
-            app:destination="@id/dashboardFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
-    </fragment>
+        android:label="BillNumber"
+        tools:layout="@layout/fragment_bill_number" />
 
     <fragment
         android:id="@+id/detailFragment"
         android:name="com.developersbreach.clientproject.view.detail.DetailFragment"
-        android:label="DetailFragment"
+        android:label="Detail"
         tools:layout="@layout/fragment_detail">
         <argument
             android:name="customerDetailArgs"
@@ -111,62 +56,35 @@
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.developersbreach.clientproject.view.settings.SettingsFragment"
-        android:label="SettingsFragment"
-        tools:layout="@layout/fragment_settings">
-        <action
-            android:id="@+id/settingsToLoginFragment"
-            app:destination="@id/loginFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
-        <action
-            android:id="@+id/settingsToIntroFragment"
-            app:destination="@id/introFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
-    </fragment>
+        android:label="Settings"
+        tools:layout="@layout/fragment_settings" />
 
     <fragment
         android:id="@+id/settingsCompatFragment"
         android:name="com.developersbreach.clientproject.view.settings.SettingsCompatFragment"
-        android:label="SettingsCompatFragment"
+        android:label="SettingsCompat"
         tools:layout="@xml/preferences_customer" />
 
     <fragment
         android:id="@+id/contactFragment"
         android:name="com.developersbreach.clientproject.view.contact.ContactFragment"
-        android:label="ContactFragment"
-        tools:layout="@layout/fragment_contact">
-        <action
-            android:id="@+id/contactToDashboardFragment"
-            app:destination="@id/dashboardFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
-    </fragment>
+        android:label="Contact"
+        tools:layout="@layout/fragment_contact" />
 
     <fragment
         android:id="@+id/servicesFragment"
         android:name="com.developersbreach.clientproject.view.services.ServicesFragment"
-        android:label="fragment_services"
+        android:label="Services"
         tools:layout="@layout/fragment_services" />
 
     <fragment
-        android:id="@+id/introFragment"
-        android:name="com.developersbreach.clientproject.view.intro.IntroFragment"
-        android:label="IntroFragment"
-        tools:layout="@layout/fragment_intro">
+        android:id="@+id/submissionsFragment"
+        android:name="com.developersbreach.clientproject.view.submissions.SubmissionsFragment"
+        android:label="Submissions"
+        tools:layout="@layout/fragment_submissions">
         <action
-            android:id="@+id/introToDashboardFragment"
-            app:destination="@id/dashboardFragment"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
+            android:id="@+id/submissionsToLoginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
 
 </navigation>

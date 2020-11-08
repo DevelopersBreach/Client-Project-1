@@ -21,3 +21,6 @@ val PROVIDERS = arrayListOf(
     AuthUI.IdpConfig.GoogleBuilder().build(),
     AuthUI.IdpConfig.EmailBuilder().build()
 )
+
+
+const val COLLECTION_NAME_CUSTOMERS: String = "customers"

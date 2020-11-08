@@ -21,7 +21,7 @@ class Intro(
                         1,
                         context.getString(R.string.intro_pager_first_title_text),
                         context.getString(R.string.intro_pager_first_subtitle_text),
-                        ContextCompat.getDrawable(context, R.drawable.logo)!!,
+                        ContextCompat.getDrawable(context, R.drawable.ic_logo)!!,
                         ContextCompat.getDrawable(context, R.drawable.intro_first_gradient)!!
                 ),
                 Intro(

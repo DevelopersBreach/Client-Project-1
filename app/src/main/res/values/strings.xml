@@ -80,4 +80,11 @@
         and bookmark feed.</string>
     <string name="refresh">Refresh</string>
 
+    <string name="sign_up">Register</string>
+    <string name="submit">Submit</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_phone_number">Phone Number</string>
+    <string name="invalid_mail_error_text">Invalid</string>
+
 </resources>
