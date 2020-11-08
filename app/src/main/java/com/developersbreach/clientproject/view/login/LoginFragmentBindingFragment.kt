@@ -19,8 +19,8 @@ fun Button.setLoginButton(
                 .createSignInIntentBuilder()
                 .setAvailableProviders(PROVIDERS)
                 .setIsSmartLockEnabled(false)
-                .setLogo(R.drawable.logo)
-                .setTheme(R.style.AppTheme_Customer_Firebase)
+                .setLogo(R.drawable.ic_logo)
+                .setTheme(R.style.Shiva_Firebase)
                 .build(),
             SIGN_IN_REQUEST_CODE
         )

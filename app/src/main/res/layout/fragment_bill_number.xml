@@ -28,8 +28,10 @@
             android:visibility="visible">
 
             <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceHeadline5"
                 android:id="@+id/fragment_bill_number_title"
-                style="@style/Text.Title.Customer.Fragment"
                 android:text="@string/bill_number_fragment_title"
                 app:layout_constraintBottom_toBottomOf="@id/clear_icon"
                 app:layout_constraintStart_toStartOf="parent"
