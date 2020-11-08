@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    
+    <color name="shiva_pink_200">#f48fb1</color>
+    <color name="shiva_pink_500">#e91e63</color>
+    <color name="shiva_pink_dark_primary">#1C0210</color>
+    <color name="shiva_pink_light_variant">#331D26</color>
+
+    <color name="shiva_ash_200">#b0bec5</color>
+    <color name="shiva_ash_500">#607d8b</color>
+    <color name="shiva_ash_dark_primary">#263238</color>
+    <color name="shiva_ash_light_variant">#90a4ae</color>
 
     <color name="colorPrimary">#000000</color>
     <color name="colorPrimaryDark">#c96668</color>
