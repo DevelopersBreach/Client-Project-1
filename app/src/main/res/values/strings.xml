@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Client Project</string>
+    <string name="app_name">Shiva Ladies Tailor</string>
 
     <string name="main_fragment_title">Shiva Ladies Tailor</string>
     <string name="services_fragment_title">Services</string>
@@ -85,6 +85,12 @@
     <string name="hint_username">Username</string>
     <string name="hint_email">Email</string>
     <string name="hint_phone_number">Phone Number</string>
-    <string name="invalid_mail_error_text">Invalid</string>
+    <string name="invalid_mail_error_text">Invalid email address</string>
+    <string name="field_length_error_text">Username needs atleast 3 characters</string>
+    <string name="invalid_phone_number">Invalid phone number</string>
+    <string name="hint_enter_otp">Enter OTP</string>
+    <string name="otp_sent_verify_description">Please enter the verification OTP that we have sent to your mobile number.</string>
+    <string name="verify_otp">Verify</string>
+    <string name="user_verification_successful">Verification Successful</string>
 
 </resources>
