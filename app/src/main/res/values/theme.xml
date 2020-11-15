@@ -20,6 +20,7 @@
         <item name="colorSecondary">@color/shiva_ash_200</item>
         <item name="colorSurface">@color/shiva_pink_dark_primary</item>
         <item name="colorPrimaryVariant">@color/shiva_pink_light_variant</item>
+        <item name="colorPrimaryDark">@color/shiva_pink_500</item>
     </style>
 
     <style name="Shiva.Ash">

@@ -2,8 +2,8 @@
 <resources>
     
     <color name="shiva_pink_200">#f48fb1</color>
-    <color name="shiva_pink_500">#e91e63</color>
-    <color name="shiva_pink_dark_primary">#1C0210</color>
+    <color name="shiva_pink_500">#EA225E</color>
+    <color name="shiva_pink_dark_primary">#48001b</color>
     <color name="shiva_pink_light_variant">#331D26</color>
 
     <color name="shiva_ash_200">#b0bec5</color>
