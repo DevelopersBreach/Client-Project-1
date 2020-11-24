@@ -17,22 +17,23 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="?attr/colorPrimarySurface"
+        android:theme="@style/Shiva.Ash"
         tools:context=".view.billNumber.BillNumberFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/bill_number_parent"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/gradient_bg"
             android:padding="16dp"
             android:visibility="visible">
 
             <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/fragment_bill_number_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAppearance="?attr/textAppearanceHeadline5"
-                android:id="@+id/fragment_bill_number_title"
                 android:text="@string/bill_number_fragment_title"
+                android:textAppearance="?attr/textAppearanceHeadline5"
                 app:layout_constraintBottom_toBottomOf="@id/clear_icon"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@id/clear_icon" />
@@ -41,8 +42,7 @@
                 android:id="@+id/clear_icon"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:background="@drawable/item_bg"
-                android:backgroundTint="@color/colorHint"
+                android:background="?attr/selectableItemBackground"
                 android:onClick="@{() -> navController.navigateUp()}"
                 android:padding="8dp"
                 android:src="@drawable/ic_clear"
@@ -72,7 +72,6 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:hint="@string/bill_number_hint"
-                android:textColorHint="@color/colorHint"
                 app:counterEnabled="true"
                 app:counterMaxLength="4"
                 app:counterTextAppearance="@style/TextAppearance.MaterialComponents.Headline5"
@@ -109,7 +108,6 @@
                 android:layout_marginEnd="40dp"
                 android:alpha="0.2"
                 android:text="@string/submit_bill_number_button_text"
-                app:icon="@drawable/ic_submit"
                 app:iconGravity="textStart"
                 app:iconPadding="16dp"
                 app:layout_constraintEnd_toEndOf="parent"

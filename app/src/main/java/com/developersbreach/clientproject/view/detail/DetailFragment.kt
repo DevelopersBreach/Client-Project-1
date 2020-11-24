@@ -8,7 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.developersbreach.clientproject.databinding.FragmentDetailBinding
-import com.developersbreach.clientproject.model.Customers
+import com.developersbreach.clientproject.model.Account
+import com.developersbreach.clientproject.model.Submission
 
 
 class DetailFragment : Fragment() {
@@ -19,9 +20,9 @@ class DetailFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val customers: Customers = DetailFragmentArgs.fromBundle(requireArguments()).customerDetailArgs
-        val photoUrl = DetailFragmentArgs.fromBundle(requireArguments()).photoUrlArgs
-        val factory = DetailViewModelFactory(requireActivity().application, customers, photoUrl)
+        val submission: Submission? = DetailFragmentArgs.fromBundle(requireArguments()).submissionArgs
+        val account: Account? = DetailFragmentArgs.fromBundle(requireArguments()).accountArgs
+        val factory = DetailViewModelFactory(requireActivity().application, submission, account)
         viewModel = ViewModelProvider(this, factory).get(DetailViewModel::class.java)
     }
 
@@ -31,8 +32,8 @@ class DetailFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentDetailBinding.inflate(inflater, container, false)
-        binding.customer = viewModel.selectedCustomer
-        binding.photoUrlString = viewModel.selectedUser
+        binding.submission = viewModel.submission
+        binding.account = viewModel.account
         binding.navController = findNavController()
         binding.lifecycleOwner = this
         binding.executePendingBindings()

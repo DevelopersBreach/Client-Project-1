@@ -33,4 +33,28 @@
         <item name="rippleColor">?attr/colorSurface</item>
     </style>
 
+    <!--  BottomSheetDialog Modal  -->
+    <style name="ThemeOverlay.Shiva.BottomSheetDialog" parent="@style/ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/Widget.Shiva.BottomSheet</item>
+    </style>
+
+    <style name="Widget.Shiva.BottomSheet" parent="Widget.MaterialComponents.BottomSheet">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.Shiva</item>
+        <item name="backgroundTint">@color/shiva_pink_nav_bar</item>
+    </style>
+
+    <style name="ShapeAppearanceOverlay.Shiva" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+        <item name="cornerSizeTopLeft">20dp</item>
+        <item name="cornerSizeTopRight">20dp</item>
+        <item name="cornerFamily">rounded</item>
+    </style>
+
+<!--    <style name="Widget.Customer.Dialog" parent="Theme.MaterialComponents.Light.Dialog">-->
+<!--        <item name="buttonBarPositiveButtonStyle">@style/Widget.App.Button</item>-->
+<!--    </style>-->
+
+<!--    <style name="Widget.App.Button" parent="Widget.MaterialComponents.Button.TextButton.Dialog">-->
+<!--        &lt;!&ndash;        <item name="android:textColor">@color/iconColor</item>&ndash;&gt;-->
+<!--    </style>-->
+
 </resources>

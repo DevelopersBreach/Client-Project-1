@@ -2,9 +2,10 @@
 <resources>
     
     <color name="shiva_pink_200">#f48fb1</color>
-    <color name="shiva_pink_500">#e91e63</color>
-    <color name="shiva_pink_dark_primary">#1C0210</color>
+    <color name="shiva_pink_500">#EA225E</color>
+    <color name="shiva_pink_dark_primary">#48001b</color>
     <color name="shiva_pink_light_variant">#331D26</color>
+    <color name="shiva_pink_nav_bar">#5d1e35</color>
 
     <color name="shiva_ash_200">#b0bec5</color>
     <color name="shiva_ash_500">#607d8b</color>
@@ -27,9 +28,5 @@
 
     <color name="colorError">#CF6679</color>
     <color name="colorOnError">#000000</color>
-
-    <color name="colorProgressTint">#DD8888</color>
-    <color name="colorHint">#DDC37C7C</color>
-    <color name="colorCardSurface">#556167</color>
 
 </resources>

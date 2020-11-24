@@ -14,16 +14,14 @@
         android:id="@+id/contact_detail_fragment_parent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
+        android:background="?attr/colorPrimarySurface"
         android:theme="@style/Shiva.Ash"
         tools:context=".view.contact.ContactFragment">
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:elevation="0dp"
-            android:theme="@style/ThemeOverlay.Ash"
-            app:elevation="0dp">
+            app:liftOnScroll="true">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/contact_fragment_toolbar"

@@ -10,34 +10,34 @@
             type="androidx.navigation.NavController" />
 
         <variable
-            name="photoUrlString"
-            type="String" />
+            name="account"
+            type="com.developersbreach.clientproject.model.Account" />
 
         <variable
-            name="customer"
-            type="com.developersbreach.clientproject.model.Customers" />
+            name="submission"
+            type="com.developersbreach.clientproject.model.Submission" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="?attr/colorPrimarySurface"
         android:fitsSystemWindows="true"
+        android:theme="@style/Shiva.Ash"
         tools:context=".view.detail.DetailFragment">
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorBackground"
-            android:elevation="0dp"
-            app:elevation="0dp">
+            app:liftOnScroll="true">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar_detail_fragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:bindDetailFragmentNavigationIconListener="@{navController}"
                 app:navigationIcon="@drawable/ic_up_button"
-                app:title="@{customer.billNumber}"
+                app:setNavigationOnClickListener="@{() -> navController.navigateUp()}"
+                app:title="@{submission.billNumber}"
                 app:titleTextAppearance="@style/TextAppearance.Customer.Toolbar.Main"
                 tools:title="@string/bill_number_hint" />
 
@@ -55,202 +55,52 @@
                 android:paddingTop="8dp"
                 android:paddingEnd="16dp">
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/detail_profile_card_view"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:cardCornerRadius="16dp"
-                    app:cardElevation="4dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="8dp">
-
-                        <ImageView
-                            android:id="@+id/detail_profile_image_view"
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            app:bindDetailProfileImage="@{photoUrlString}"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent"
-                            tools:ignore="ContentDescription"
-                            tools:src="@drawable/ic_account" />
-
-                        <TextView
-                            android:id="@+id/detail_customer_name"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="12dp"
-                            android:layout_marginTop="8dp"
-                            android:maxLines="1"
-                            android:text="@{customer.name}"
-                            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-                            android:textStyle="bold"
-                            app:layout_constraintBottom_toTopOf="@id/detail_customer_contact"
-                            app:layout_constraintStart_toEndOf="@id/detail_profile_image_view"
-                            app:layout_constraintTop_toTopOf="@id/detail_profile_image_view"
-                            tools:text="@string/label_customer" />
-
-                        <TextView
-                            android:id="@+id/detail_customer_contact"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@{customer.contact}"
-                            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-                            app:layout_constraintBottom_toBottomOf="@id/detail_profile_image_view"
-                            app:layout_constraintStart_toStartOf="@id/detail_customer_name"
-                            app:layout_constraintTop_toBottomOf="@id/detail_customer_name"
-                            tools:text="7032000589" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </com.google.android.material.card.MaterialCardView>
-
-                <ImageView
-                    android:id="@+id/detail_date_icon"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="24dp"
-                    android:src="@drawable/ic_date"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/detail_profile_card_view"
-                    tools:ignore="ContentDescription" />
-
                 <TextView
-                    android:id="@+id/detail_date_given_label"
+                    android:id="@+id/detail_customer_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="4dp"
-                    android:text="@string/detail_date_started_on_label"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-                    app:layout_constraintStart_toEndOf="@id/detail_date_icon"
-                    app:layout_constraintTop_toTopOf="@id/detail_date_icon" />
-
-                <TextView
-                    android:id="@+id/detail_date_given"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="8dp"
+                    android:maxLines="1"
+                    android:text="@{account.username}"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
                     android:textStyle="bold"
-                    app:bindDetailDateGivenTextView="@{customer.date}"
-                    app:layout_constraintStart_toStartOf="@id/detail_date_given_label"
-                    app:layout_constraintTop_toBottomOf="@id/detail_date_given_label"
-                    tools:text="Aug 16" />
+                    app:layout_constraintBottom_toTopOf="@id/detail_customer_name"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Rajashekar K E" />
+
+                <TextView
+                    android:id="@+id/detail_customer_contact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@{account.phoneNumber}"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+                    app:layout_constraintStart_toStartOf="@id/detail_customer_name"
+                    app:layout_constraintTop_toBottomOf="@id/detail_customer_name"
+                    tools:text="7032000589" />
 
                 <TextView
                     android:id="@+id/detail_date_expected_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/detail_date_expected_label"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@id/detail_date_given_label" />
+                    android:layout_marginTop="20dp"
+                    android:text="@string/delivery_date_label"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    app:layout_constraintStart_toStartOf="@id/detail_customer_name"
+                    app:layout_constraintTop_toBottomOf="@id/detail_customer_contact" />
 
                 <TextView
                     android:id="@+id/detail_date_expected"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
                     android:textStyle="bold"
-                    app:bindDetailDateDeliveryTextView="@{customer.delivery}"
+                    app:bindDetailDateDeliveryTextView="@{submission.delivery}"
                     app:layout_constraintStart_toStartOf="@id/detail_date_expected_label"
                     app:layout_constraintTop_toBottomOf="@id/detail_date_expected_label"
-                    tools:text="Aug 24" />
-
-                <View
-                    android:id="@+id/date_separator"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="8dp"
-                    android:alpha="0.2"
-                    android:background="?attr/colorSurface"
-                    app:layout_constraintTop_toBottomOf="@id/detail_date_given" />
-
-                <ImageView
-                    android:id="@+id/detail_num_items_icon"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="20dp"
-                    android:src="@drawable/ic_shopping_bag"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/date_separator"
-                    tools:ignore="ContentDescription" />
-
-                <TextView
-                    android:id="@+id/detail_num_items_text_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:text="@string/detail_num_items_text_label"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-                    app:layout_constraintBottom_toBottomOf="@id/detail_num_items_icon"
-                    app:layout_constraintStart_toEndOf="@id/detail_num_items_icon"
-                    app:layout_constraintTop_toTopOf="@id/detail_num_items_icon" />
-
-                <TextView
-                    android:id="@+id/detail_num_items_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:text="@{customer.totalItems}"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@id/detail_num_items_text_label"
-                    app:layout_constraintStart_toEndOf="@id/detail_num_items_text_label"
-                    app:layout_constraintTop_toTopOf="@id/detail_num_items_text_label"
-                    tools:text="9" />
-
-                <View
-                    android:id="@+id/num_items_separator"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="8dp"
-                    android:alpha="0.2"
-                    android:background="?attr/colorSurface"
-                    app:layout_constraintTop_toBottomOf="@id/detail_num_items_icon" />
-
-                <ImageView
-                    android:id="@+id/detail_status_icon"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="20dp"
-                    app:bindDetailStatusImageView="@{customer}"
-                    app:bindDetailStatusTextView="@{detailStatusText}"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/num_items_separator"
-                    tools:ignore="ContentDescription"
-                    tools:src="@drawable/ic_pending" />
-
-                <TextView
-                    android:id="@+id/detail_status_text_tag"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:text="@string/label_status"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-                    app:layout_constraintBottom_toBottomOf="@id/detail_status_icon"
-                    app:layout_constraintStart_toEndOf="@id/detail_status_icon"
-                    app:layout_constraintTop_toTopOf="@id/detail_status_icon" />
-
-                <TextView
-                    android:id="@+id/detail_status_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="@id/detail_status_text_tag"
-                    app:layout_constraintStart_toEndOf="@id/detail_status_text_tag"
-                    app:layout_constraintTop_toTopOf="@id/detail_status_text_tag"
-                    tools:text="Pending" />
+                    tools:text="Dec 24, 2020" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

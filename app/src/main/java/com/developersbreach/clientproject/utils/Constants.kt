@@ -23,4 +23,6 @@ val PROVIDERS = arrayListOf(
 )
 
 
-const val COLLECTION_NAME_CUSTOMERS: String = "customers"
+const val COLLECTION_SUBMISSIONS: String = "submissions"
+const val COLLECTION_BILLS: String = "bills"
+const val COLLECTION_CUSTOMER_BILL: String = "customerSubmissions"

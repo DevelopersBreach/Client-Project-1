@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="explore"
+            type="com.developersbreach.clientproject.model.Explore" />
+
+        <variable
+            name="fragment"
+            type="com.developersbreach.clientproject.view.explore.ExploreFragment" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="12dp"
+        app:bindExploreFragmentReference="@{fragment}"
+        app:bindExploreItemClickListener="@{explore}">
+
+        <ImageView
+            android:id="@+id/item_image_explore"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            app:bindItemExploreImageView="@{explore}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/ic_bill_number" />
+
+        <TextView
+            android:id="@+id/item_text_explore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:alpha="0.8"
+            android:text="@{explore.title}"
+            android:textAppearance="?attr/textAppearanceSubtitle1"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/item_image_explore"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/list_item_search_bill_number" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
