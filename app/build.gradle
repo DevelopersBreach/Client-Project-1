@@ -94,12 +94,12 @@ dependencies {
     implementation 'com.firebaseui:firebase-ui-auth:6.3.0'
     // Google authentication support for firebase authentication
     // implementation 'com.google.firebase:firebase-auth:20.0.0'
-    implementation 'com.google.firebase:firebase-auth-ktx:20.0.0'
+    implementation 'com.google.firebase:firebase-auth-ktx:20.0.1'
     // Declare the dependencies for the Firebase Cloud Messaging and Analytics libraries
     // When NOT using the BoM, you must specify versions in Firebase library dependencies
     implementation 'com.google.firebase:firebase-messaging-ktx:21.0.0'
     // Recommended: Firebase SDK for Google Analytics.
     implementation 'com.google.firebase:firebase-analytics-ktx:18.0.0'
     // Firebase Crashlytics SDK.
-    implementation 'com.google.firebase:firebase-crashlytics-ktx:17.2.2'
+    implementation 'com.google.firebase:firebase-crashlytics-ktx:17.3.0'
 }
