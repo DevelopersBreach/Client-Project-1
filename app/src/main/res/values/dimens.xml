@@ -4,4 +4,8 @@
     <dimen name="padding_16dp">16dp</dimen>
     <dimen name="layout_margin_16dp">16dp</dimen>
     <dimen name="padding_8dp">8dp</dimen>
+    <dimen name="list_item_spacing">16dp</dimen>
+    <dimen name="list_item_spacing_half">8dp</dimen>
+    <dimen name="elevation_16">16dp</dimen>
+    <dimen name="navigation_drawer_profile_image_size_padded">32dp</dimen>
 </resources>

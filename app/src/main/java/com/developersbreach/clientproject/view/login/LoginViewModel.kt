@@ -6,13 +6,18 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.developersbreach.clientproject.R
-import com.developersbreach.clientproject.auth.AuthenticationState
+import com.developersbreach.clientproject.model.Account
 import com.developersbreach.clientproject.repository.ShivaRepository
+import com.developersbreach.clientproject.utils.SubmissionStatus
 import com.google.android.material.textfield.TextInputLayout
 import com.google.common.base.Strings
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.PhoneAuthCredential
+import com.google.firebase.auth.PhoneAuthProvider
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
 import timber.log.Timber
 
 class LoginViewModel(
@@ -21,13 +26,52 @@ class LoginViewModel(
 
     private val repository = ShivaRepository(application.applicationContext)
     private var viewModelJob = SupervisorJob()
-    private val viewModelScope = CoroutineScope(viewModelJob + Dispatchers.Unconfined)
+    private val viewModelScope = CoroutineScope(
+        viewModelJob + Dispatchers.Unconfined
+    )
 
     val firebaseAuth = repository.getFirebaseAuth()
-    val authenticationState: LiveData<AuthenticationState> = repository.getAuthenticationState()
 
-    init {
-        Timber.e("Initialized")
+    var storedVerificationId: String? = ""
+
+    private val _status = MutableLiveData<SubmissionStatus>()
+    val status: LiveData<SubmissionStatus>
+        get() = _status
+
+    fun verifyPhoneNumberWithCode(code: String, account: Account) {
+        val credential = PhoneAuthProvider.getCredential(storedVerificationId!!, code)
+        signInWithPhoneAuthCredential(credential, account)
+    }
+
+    private fun signInWithPhoneAuthCredential(
+        credential: PhoneAuthCredential,
+        account: Account
+    ) {
+        firebaseAuth.signInWithCredential(credential).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                // Sign in success, update UI with the signed-in user's information
+                submitCustomerToFirestore(account)
+            } else {
+                // Sign in failed, display a message and update the UI
+                Timber.e("signInWithCredential:failure ${task.exception}")
+                if (task.exception is FirebaseAuthInvalidCredentialsException) {
+                    // The verification code entered was invalid
+                    Timber.e("Invalid OTP code.")
+                }
+            }
+        }
+    }
+
+    private fun submitCustomerToFirestore(account: Account) {
+        viewModelScope.launch {
+            _status.value = SubmissionStatus.LOADING
+            val collection = repository.submitBillToRootCollection()
+            collection.document(account.phoneNumber!!).set(account).addOnSuccessListener {
+                _status.value = SubmissionStatus.COMPLETED
+            }.addOnFailureListener {
+                _status.value = SubmissionStatus.ERROR
+            }
+        }
     }
 
     private fun correctMail(email: String): Boolean {
@@ -102,9 +146,5 @@ class LoginViewModel(
     override fun onCleared() {
         super.onCleared()
         viewModelJob.cancel()
-    }
-
-    companion object {
-        const val KEY_VERIFY_IN_PROGRESS = "key_verify_progress"
     }
 }

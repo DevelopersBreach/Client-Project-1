@@ -4,12 +4,10 @@ import android.content.Context
 import android.view.View
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import androidx.navigation.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.developersbreach.clientproject.R
 import com.developersbreach.clientproject.model.Intro
 import com.developersbreach.clientproject.utils.convertToDp
-import com.developersbreach.clientproject.view.controller.introToDashboard
 
 
 @BindingAdapter("bindIntroViewPagerListData")
@@ -40,7 +38,7 @@ fun TextView.setNextItemClickListener(
                 viewPager.setCurrentItem(currentItem + 1, true)
             }
             "Finish" -> {
-                navigateToArticleListFragment(nextIntroTextView)
+                navigateToArticleListFragment()
             }
         }
     }
@@ -60,7 +58,7 @@ fun TextView.setNextItemClickListener(
     }
 
     skipIntroTextView.setOnClickListener {
-        navigateToArticleListFragment(nextIntroTextView)
+        navigateToArticleListFragment()
     }
 
     viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
@@ -106,8 +104,7 @@ private fun View.adjustViewSize(currentView: View) {
     currentView.layoutParams.width = convertToDp(12.toFloat())
 }
 
-private fun TextView.navigateToArticleListFragment(nextIntroTextView: TextView) {
-    val context: Context = nextIntroTextView.context
+private fun TextView.navigateToArticleListFragment() {
 
     with(
         context.getSharedPreferences(
@@ -122,5 +119,5 @@ private fun TextView.navigateToArticleListFragment(nextIntroTextView: TextView) 
         commit()
     }
 
-    introToDashboard(findNavController())
+//    introToDashboard(findNavController())
 }

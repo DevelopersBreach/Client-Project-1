@@ -1,41 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:theme="@style/Shiva.Pink"
-    app:cardBackgroundColor="?attr/colorPrimaryVariant"
-    app:cardUseCompatPadding="true">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <data>
+
+        <variable
+            name="submission"
+            type="com.developersbreach.clientproject.model.Submission" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:paddingHorizontal="16dp"
-        android:paddingVertical="12dp">
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:theme="@style/Shiva.Pink"
+        app:bindItemSubmissionListener="@{submission}"
+        app:cardUseCompatPadding="true">
 
-        <TextView
-            android:id="@+id/item_submission_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?attr/textAppearanceHeadline6"
-            app:layout_constraintBottom_toTopOf="@id/item_submission_date"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Submission" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="12dp">
 
-        <TextView
-            android:id="@+id/item_submission_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?attr/textAppearanceSubtitle1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@id/item_submission_title"
-            app:layout_constraintTop_toBottomOf="@id/item_submission_title"
-            tools:text="Nov 7, 2020" />
+            <TextView
+                android:id="@+id/item_submission_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{submission.billNumber}"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                app:layout_constraintBottom_toTopOf="@id/item_submission_date"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Submission" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/item_submission_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{submission.delivery}"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/item_submission_title"
+                app:layout_constraintTop_toBottomOf="@id/item_submission_title"
+                tools:text="Nov 7, 2020" />
 
-</com.google.android.material.card.MaterialCardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>
 

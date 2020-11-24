@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         app:cardCornerRadius="8dp"
-        app:strokeColor="?attr/colorSecondaryVariant"
+        app:strokeColor="?attr/colorPrimaryDark"
         app:strokeWidth="1dp">
 
         <ImageView

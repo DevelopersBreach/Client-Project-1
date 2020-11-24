@@ -230,7 +230,6 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:indeterminate="true"
-                    android:indeterminateTint="@color/colorProgressTint"
                     android:indeterminateTintMode="multiply"
                     android:visibility="invisible" />
 
@@ -249,18 +248,6 @@
                 app:layout_constraintTop_toBottomOf="@id/box_view"
                 app:srcCompat="@drawable/ic_arrow"
                 tools:ignore="ContentDescription" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/dashboard_recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:orientation="horizontal"
-                app:bindDashboardListData="@{viewModel.dashboardList}"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/dashboard_fab"
-                tools:listitem="@layout/item_dashboard" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

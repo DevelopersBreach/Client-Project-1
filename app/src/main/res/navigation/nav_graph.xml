@@ -17,9 +17,66 @@
         android:label="Login"
         tools:layout="@layout/fragment_login">
         <action
-            android:id="@+id/loginToSubmissionsFragment"
+            android:id="@+id/loginToSubmissions"
             app:destination="@id/submissionsFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/submissionsFragment"
+        android:name="com.developersbreach.clientproject.view.submissions.SubmissionsFragment"
+        android:label="Submissions"
+        tools:layout="@layout/fragment_submissions">
+        <action
+            android:id="@+id/submissionsToLogin"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/submissionToDetail"
+            app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/submissionsToEditor"
+            app:destination="@id/editorFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/editorFragment"
+        android:name="com.developersbreach.clientproject.view.editor.EditorFragment"
+        android:label="EditorFragment"
+        tools:layout="@layout/fragment_editor" >
+        <argument
+            android:name="submissionArgs"
+            app:argType="com.developersbreach.clientproject.model.Submission"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+
+    <action
+        android:id="@+id/toGlobalExplore"
+        app:destination="@id/exploreFragment" />
+
+    <dialog
+        android:id="@+id/exploreFragment"
+        android:name="com.developersbreach.clientproject.view.explore.ExploreFragment"
+        android:label="Explore"
+        tools:layout="@layout/fragment_explore">
+        <action
+            android:id="@+id/exploreToBillNumber"
+            app:destination="@id/billNumberFragment" />
+        <action
+            android:id="@+id/exploreToServices"
+            app:destination="@id/servicesFragment" />
+        <action
+            android:id="@+id/exploreToContact"
+            app:destination="@id/contactFragment" />
+        <action
+            android:id="@+id/exploreToAccount"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/exploreToAchievements"
+            app:destination="@id/achievementsFragment" />
+        <action
+            android:id="@+id/exploreToAbout"
+            app:destination="@id/aboutFragment" />
+    </dialog>
 
     <fragment
         android:id="@+id/dashboardFragment"
@@ -28,9 +85,9 @@
         tools:layout="@layout/fragment_dashboard">
 
         <argument
-            android:name="customerDashboardArgs"
+            android:name="dashboardArgs"
             android:defaultValue="@null"
-            app:argType="com.developersbreach.clientproject.model.Customers"
+            app:argType="com.developersbreach.clientproject.model.Account"
             app:nullable="true" />
     </fragment>
 
@@ -46,11 +103,15 @@
         android:label="Detail"
         tools:layout="@layout/fragment_detail">
         <argument
-            android:name="customerDetailArgs"
-            app:argType="com.developersbreach.clientproject.model.Customers" />
+            android:name="submissionArgs"
+            app:argType="com.developersbreach.clientproject.model.Submission"
+            app:nullable="true"
+            android:defaultValue="@null" />
         <argument
-            android:name="photoUrlArgs"
-            app:argType="string" />
+            android:name="accountArgs"
+            app:argType="com.developersbreach.clientproject.model.Account"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
 
     <fragment
@@ -78,13 +139,39 @@
         tools:layout="@layout/fragment_services" />
 
     <fragment
-        android:id="@+id/submissionsFragment"
-        android:name="com.developersbreach.clientproject.view.submissions.SubmissionsFragment"
-        android:label="Submissions"
-        tools:layout="@layout/fragment_submissions">
-        <action
-            android:id="@+id/submissionsToLoginFragment"
-            app:destination="@id/loginFragment" />
+        android:id="@+id/accountFragment"
+        android:name="com.developersbreach.clientproject.view.account.AccountFragment"
+        android:label="AccountFragment"
+        tools:layout="@layout/fragment_account">
+        <argument
+            android:name="account"
+            android:defaultValue="@null"
+            app:argType="com.developersbreach.clientproject.model.Account"
+            app:nullable="true" />
     </fragment>
+
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.developersbreach.clientproject.view.about.AboutFragment"
+        android:label="AboutFragment"
+        tools:layout="@layout/fragment_about" />
+
+    <fragment
+        android:id="@+id/achievementsFragment"
+        android:name="com.developersbreach.clientproject.view.achievements.AchievementsFragment"
+        android:label="AchievementsFragment"
+        tools:layout="@layout/fragment_achievements" />
+
+    <fragment
+        android:id="@+id/levelsFragment"
+        android:name="com.developersbreach.clientproject.view.levels.LevelsFragment"
+        android:label="LevelsFragment"
+        tools:layout="@layout/fragment_levels" />
+
+    <fragment
+        android:id="@+id/badgesFragment"
+        android:name="com.developersbreach.clientproject.view.badges.BadgesFragment"
+        android:label="BadgesFragment"
+        tools:layout="@layout/fragment_badges" />
 
 </navigation>

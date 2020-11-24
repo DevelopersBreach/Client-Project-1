@@ -1,6 +1,5 @@
 package com.developersbreach.clientproject.view.contact
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,11 +13,6 @@ import com.developersbreach.clientproject.databinding.FragmentContactBinding
 class ContactFragment : Fragment() {
 
     private val viewModel by viewModels<ContactViewModel>()
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        requireActivity().window.statusBarColor = Color.TRANSPARENT
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

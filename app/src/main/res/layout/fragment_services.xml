@@ -18,16 +18,14 @@
         android:id="@+id/contact_detail_fragment_parent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fitsSystemWindows="true"
         android:theme="@style/Shiva.Ash"
+        android:background="?attr/colorPrimarySurface"
         tools:context=".view.services.ServicesFragment">
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:elevation="0dp"
-            android:theme="@style/ThemeOverlay.Ash"
-            app:elevation="0dp">
+            app:liftOnScroll="true"
+            android:layout_height="?attr/actionBarSize">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/services_fragment_toolbar"

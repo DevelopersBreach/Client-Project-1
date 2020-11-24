@@ -1,18 +1,15 @@
 package com.developersbreach.clientproject.view.submissions
 
 import android.app.Application
-import android.text.Editable
-import android.util.Patterns
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import com.developersbreach.clientproject.R
 import com.developersbreach.clientproject.auth.AuthenticationState
 import com.developersbreach.clientproject.repository.ShivaRepository
-import com.google.android.material.textfield.TextInputLayout
-import com.google.common.base.Strings.isNullOrEmpty
+import com.google.firebase.firestore.Query
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
 import timber.log.Timber
 
 class SubmissionsViewModel(
@@ -25,8 +22,20 @@ class SubmissionsViewModel(
 
     val authenticationState: LiveData<AuthenticationState> = repository.getAuthenticationState()
 
+    private lateinit var _billsQuery: Query
+    val billsQuery: Query
+        get() = _billsQuery
+
     init {
-        Timber.e("Initialized")
+        getBillsOfCurrentCustomer()
+    }
+
+    private fun getBillsOfCurrentCustomer() {
+        viewModelScope.launch {
+            val phoneNumber = repository.getCurrentUserPhoneNumber().drop(3)
+            _billsQuery = repository.getCurrentCustomerTotalBills(phoneNumber)
+            Timber.e("Path == $_billsQuery")
+        }
     }
 
     override fun onCleared() {

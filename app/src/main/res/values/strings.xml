@@ -92,5 +92,31 @@
     <string name="otp_sent_verify_description">Please enter the verification OTP that we have sent to your mobile number.</string>
     <string name="verify_otp">Verify</string>
     <string name="user_verification_successful">Verification Successful</string>
+    <string name="bottom_bar_title">Explore</string>
+
+    <string name="list_item_search_bill_number">Search Bill Number</string>
+    <string name="list_item_services">Services</string>
+    <string name="list_item_contact">Contact</string>
+    <string name="list_item_about">About</string>
+    <string name="list_item_achievements">Achievements</string>
+    <string name="logout_user">Logout</string>
+    <string name="achievements_label">Achievements</string>
+    <string name="tab_name_levels">Levels</string>
+    <string name="tab_name_badges">Badges</string>
+    <string name="hint_bill_number">Bill number</string>
+    <string name="delivery_date_label">Delivery date</string>
+    <string name="tools_text_date">Dec 24, 2020</string>
+
+    <!--  Firestore Response Message  -->
+    <string name="customer_firestore_unsuccessful">UnSuccessful</string>
+    <string name="dialog_positive_button_ok">OK</string>
+    <string name="dialog_positive_message_text">Customer added successfully</string>
+    <string name="dialog_error_title_text">Error</string>
+
+    <!--  Dialog titles and messages  -->
+    <string name="dialog_error_message_text">Internet connection not available</string>
+    <string name="dialog_negative_button_cancel">Cancel</string>
+    <string name="dialog_positive_button_delete">Delete</string>
+    <string name="dialog_title_search_error">Error</string>
 
 </resources>

@@ -2,19 +2,11 @@ package com.developersbreach.clientproject.view.detail
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
-import com.developersbreach.clientproject.model.Customers
+import com.developersbreach.clientproject.model.Account
+import com.developersbreach.clientproject.model.Submission
 
 class DetailViewModel(
     application: Application,
-    customers: Customers,
-    photoUrl: String,
-) : AndroidViewModel(application) {
-
-    private val _selectedCustomer: Customers = customers
-    val selectedCustomer: Customers
-        get() = _selectedCustomer
-
-    private val _selectedUser: String = photoUrl
-    val selectedUser: String
-        get() = _selectedUser
-}
+    val submission: Submission?,
+    val account: Account?
+) : AndroidViewModel(application)

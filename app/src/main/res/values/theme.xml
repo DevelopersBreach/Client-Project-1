@@ -30,32 +30,10 @@
     </style>
 
     <!--    <style name="Shiva.Blue">-->
-    <!--        <item name="colorPrimary">@color/sankalp_blue_200</item>-->
-    <!--        <item name="colorSecondary">@color/sankalp_amber_200</item>-->
-    <!--        <item name="colorSurface">@color/sankalp_blue_dark_primary</item>-->
-    <!--        <item name="colorPrimaryVariant">@color/sankalp_blue_light_variant</item>-->
+    <!--        <item name="colorPrimary">@color/blue_200</item>-->
+    <!--        <item name="colorSecondary">@color/amber_200</item>-->
+    <!--        <item name="colorSurface">@color/blue_dark_primary</item>-->
+    <!--        <item name="colorPrimaryVariant">@color/blue_light_variant</item>-->
     <!--    </style>-->
-
-    <style name="ThemeOverlay.Ash" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorSecondary</item>
-        <item name="colorPrimaryDark">@color/colorSecondaryVariant</item>
-        <item name="colorOnPrimary">@color/colorOnSecondary</item>
-    </style>
-
-    <style name="Widget.Shiva.Button.Login" parent="Widget.MaterialComponents.Button.Icon">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center</item>
-        <item name="android:padding">8dp</item>
-        <item name="android:textStyle">bold</item>
-        <item name="textAllCaps">false</item>
-    </style>
-
-    <style name="Shiva.Firebase" parent="FirebaseUI">
-        <item name="android:windowActionBarOverlay">true</item>
-        <item name="android:windowBackground">@drawable/ic_logo</item>
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-    </style>
 
 </resources>

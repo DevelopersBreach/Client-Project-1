@@ -3,6 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="navController"
+            type="androidx.navigation.NavController" />
+    </data>
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -13,7 +20,6 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="56dp"
             android:paddingHorizontal="@dimen/padding_16dp"
             android:paddingTop="@dimen/padding_16dp">
 
@@ -26,54 +32,104 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/settings_icon"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:padding="4dp"
-                android:src="@drawable/ic_settings"
-                app:layout_constraintBottom_toBottomOf="@id/submissions_fragment_title"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@id/submissions_fragment_title"
-                tools:ignore="ContentDescription" />
-
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/submissions_recycler_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/submissions_fragment_title"
-                tools:itemCount="4"
+                tools:itemCount="8"
                 tools:listitem="@layout/item_submission" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bottomAppBar"
-            style="@style/Widget.MaterialComponents.BottomAppBar.PrimarySurface"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:layout_gravity="bottom"
+            app:contentInsetStart="0dp"
             app:fabAlignmentMode="center"
             app:fabCradleRoundedCornerRadius="28dp"
             app:hideOnScroll="true">
 
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/expand_explore_card_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    app:bindExpandExploreCardListener="@{navController}"
+                    app:bindNewSubmissionFabListener="@{fabNewSubmission}"
+                    app:bindSettingsImageListener="@{settingsIcon}"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="?attr/selectableItemBackground"
+                        android:paddingVertical="4dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="16dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:id="@+id/bottomAppBar_menu_icon"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/ic_arrow_expand"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/bottom_app_bar_title"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="ContentDescription" />
+
+                        <TextView
+                            android:id="@+id/bottom_app_bar_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="@string/bottom_bar_title"
+                            android:textAppearance="?attr/textAppearanceSubtitle1"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/bottomAppBar_menu_icon"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
 
                 <ImageView
-                    android:id="@+id/bottomAppBar_menu_icon"
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:layout_gravity="center_vertical"
-                    android:src="@drawable/ic_menu"
+                    android:id="@+id/settings_icon"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginEnd="12dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:padding="4dp"
+                    android:src="@drawable/ic_settings"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="ContentDescription" />
 
-            </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.bottomappbar.BottomAppBar>
 
@@ -81,11 +137,12 @@
             android:id="@+id/fab_new_submission"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:backgroundTint="?attr/colorPrimaryVariant"
+            app:backgroundTint="?attr/colorPrimarySurface"
             app:layout_anchor="@id/bottomAppBar"
             app:srcCompat="@drawable/ic_add"
             app:tint="?attr/colorOnPrimarySurface"
             tools:ignore="ContentDescription" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 </layout>
