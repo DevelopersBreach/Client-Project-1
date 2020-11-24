@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="navController"
+            type="androidx.navigation.NavController" />
+
+        <variable
+            name="viewModel"
+            type="com.developersbreach.clientproject.view.editor.EditorViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/editor_parent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/colorPrimarySurface"
+        android:theme="@style/Shiva.Ash"
+        tools:context=".view.editor.EditorFragment">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:liftOnScroll="true">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:navigationIcon="@drawable/ic_clear"
+                app:setNavigationOnClickListener="@{() -> navController.navigateUp()}"
+                app:title="Editor"
+                app:titleTextAppearance="?attr/textAppearanceHeadline5" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/bill_number_input_layout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_bill_number"
+                app:counterEnabled="true"
+                app:counterMaxLength="4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:startIconDrawable="@drawable/ic_bill_number">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/bill_number_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:letterSpacing="1"
+                    android:maxLength="4"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:textStyle="bold" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/delivery_date_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:alpha="0.6"
+                android:text="@string/delivery_date_label"
+                android:textAppearance="?attr/textAppearanceSubtitle1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bill_number_input_layout" />
+
+            <TextView
+                android:id="@+id/expected_delivery_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?attr/textAppearanceHeadline5"
+                app:bindExpectedDeliveryDateTextView="@{viewModel}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/delivery_date_label"
+                tools:text="@string/tools_text_date" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/bill_number_submit_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="28dp"
+                android:text="@string/submit_bill_number_button_text"
+                android:textAllCaps="false"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textStyle="bold"
+                android:visibility="invisible"
+                app:bindBillNumberEditText="@{billNumberEditText}"
+                app:bindBillNumberInputLayout="@{billNumberInputLayout}"
+                app:bindEditorViewModel="@{viewModel}"
+                app:bindValidateExpectedDeliveryDate="@{expectedDeliveryDate}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/expected_delivery_date"
+                tools:visibility="visible" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>
